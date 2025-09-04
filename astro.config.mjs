@@ -5,13 +5,21 @@ import sitemap from "@astrojs/sitemap";
 
 import cloudflare from "@astrojs/cloudflare";
 
+import tailwindcss from "@tailwindcss/vite";
+
 // https://astro.build/config
+// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://novaker.tech",
   integrations: [mdx(), sitemap()],
+
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
     },
   }),
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
